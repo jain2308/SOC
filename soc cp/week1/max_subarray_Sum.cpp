@@ -1,0 +1,37 @@
+#include "bits/stdc++.h"
+using namespace std;
+
+// Typedefs and macros
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define all(v) v.begin(), v.end()
+#define endl '\n'
+#define rep(i, a, b) for (int i = a; i < b; ++i)
+#define in(v,n) rep(i, 0, n) { cin >> v[i]; }
+#define out(v,n) rep(i, 0, n) { cout << v[i] << " "; } cout << endl;
+using vi = vector<ll>;
+using pii = pair<int, int>;
+
+void fast_io() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+
+// Driver code
+int32_t main() {
+    fast_io();
+        int n;
+        cin >> n;
+        vi nums(n);
+        in(nums, n);
+        ll this_sum = nums[0];
+        ll max_sum = nums[0];
+        for(int i = 1; i < n; i++) {
+            this_sum = max(nums[i], this_sum + nums[i]);
+            max_sum = max(max_sum, this_sum);
+        }
+        cout << max_sum << endl;
+    
+    return 0;
+}
